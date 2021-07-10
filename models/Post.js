@@ -21,10 +21,10 @@ Post.init(
                 key: 'id'
             }
         },
-        repost_id: {
+        post_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'repost',
+                model: 'post',
                 key: 'id'
             }
         }
