@@ -108,6 +108,7 @@ router.delete('/:id', withAuth, async (req, res) => {
 router.put('/:id', withAuth, async (req, res) => {
   try {
     const userData = await User.update(req.body, {
+      individualHooks: true,
       where: {
         id: req.params.id
       },
