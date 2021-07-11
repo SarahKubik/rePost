@@ -15,6 +15,21 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+router.get('/', withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findAll({
+      where: {
+        user_id: req.session.user_id
+      },
+      order: [['createdAt', 'DESC']]
+    });
+
+    res.status(200).json(postData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 router.get('/:user_id', withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({
