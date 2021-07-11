@@ -15,7 +15,8 @@ const loginFormHandler = async (event) => {
   
       if (response.ok) {
         // If successful, redirect the browser to the profile page
-        document.location.replace('/homepage');
+        console.log('This ran')
+        document.location.replace('/');
       } else {
         alert(response.statusText);
       }
@@ -23,6 +24,12 @@ const loginFormHandler = async (event) => {
   };
 const signupFormHandler = async (event) => {
     event.preventDefault();
+
+    console.log(`
+    
+    This ran
+    
+    `);
   
     const name = document.querySelector('#name-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
@@ -36,9 +43,17 @@ const signupFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/homepage');
+        document.location.replace('/');
       } else {
         alert(response.statusText);
       }
     }
-  };
+};
+
+document
+  .querySelector('.login-form')
+  .addEventListener('submit', loginFormHandler);
+
+document
+  .querySelector('.signup-form')
+  .addEventListener('submit', signupFormHandler);

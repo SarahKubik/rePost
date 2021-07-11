@@ -1,59 +1,65 @@
-<div class="field">
-  <h2>Create your account</h2>
-  <div class="control">
-    <input class="input" id="name-signup" type="text" placeholder="Username">
+<form class="form signup-form">
+  <div class="field">
+    <h2>Create your account</h2>
+    <div class="control">
+      <input class="input" id="name-signup" type="text" placeholder="Username">
+    </div>
   </div>
-</div>
-<div class="field">
-  <p class="control has-icons-left has-icons-right">
-    <input class="input" id="email-signup" type="email" placeholder="Email">
-    <span class="icon is-small is-left">
-      <i class="fas fa-envelope"></i>
-    </span>
-    <span class="icon is-small is-right">
-      <i class="fas fa-check"></i>
-    </span>
-  </p>
-</div>
-<div class="field">
-  <p class="control has-icons-left">
-    <input class="input" id="password-signup" type="password"  placeholder="Password">
-    <span class="icon is-small is-left">
-      <i class="fas fa-lock"></i>
-    </span>
-  </p>
-</div>
-<div class="field">
-  <p class="control">
-    <button class="button is-success">
-      Sign up
-    </button>
-  </p>
-</div>
-<div class="field">
-  <h2>Login if you already have an account</h2>
-  <p class="control has-icons-left has-icons-right">
-    <input class="input" type="email" id="login-email" placeholder="Email">
-    <span class="icon is-small is-left">
-      <i class="fas fa-envelope"></i>
-    </span>
-    <span class="icon is-small is-right">
-      <i class="fas fa-check"></i>
-    </span>
-  </p>
-</div>
-<div class="field">
-  <p class="control has-icons-left">
-    <input class="input" type="password" id="login-password" placeholder="Password">
-    <span class="icon is-small is-left">
-      <i class="fas fa-lock"></i>
-    </span>
-  </p>
-</div>
-<div class="field">
-  <p class="control">
-    <button class="button is-success">
-      Log In
-    </button>
-  </p>
-</div>
+  <div class="field">
+    <p class="control has-icons-left has-icons-right">
+      <input class="input" id="email-signup" type="email" placeholder="Email">
+      <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+      </span>
+      <span class="icon is-small is-right">
+        <i class="fas fa-check"></i>
+      </span>
+    </p>
+  </div>
+  <div class="field">
+    <p class="control has-icons-left">
+      <input class="input" id="password-signup" type="password"  placeholder="Password">
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
+    </p>
+  </div>
+  <div class="field">
+    <p class="control">
+      <button class="button is-success" type="submit">
+        Sign Up
+      </button>
+    </p>
+  </div>
+</form>
+<form class="form login-form">
+  <div class="field">
+    <h2>Login if you already have an account</h2>
+    <p class="control has-icons-left has-icons-right">
+      <input class="input" type="email" id="email-login" placeholder="Email">
+      <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+      </span>
+      <span class="icon is-small is-right">
+        <i class="fas fa-check"></i>
+      </span>
+    </p>
+  </div>
+  <div class="field">
+    <p class="control has-icons-left">
+      <input class="input" type="password" id="password-login" placeholder="Password">
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
+    </p>
+  </div>
+  <div class="field">
+    <p class="control">
+      <button class="button is-success" type="submit">
+        Log In
+      </button>
+    </p>
+  </div>
+</form>
+
+<script src='./js/login.js'></script>
