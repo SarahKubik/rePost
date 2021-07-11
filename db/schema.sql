@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS repost_db;
+CREATE DATABASE repost_db;
