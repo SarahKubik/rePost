@@ -24,24 +24,16 @@
     
     <div class="navbar-end">
       <div class="navbar-item">
+        {{#if logged_in}}
         <div class="buttons">
-          <a class="button is-primary">
-            <strong>Sign up</strong>
-          </a>
-          <a class="button is-light">
-            Log in
-          </a>
+          <button class="button is-light" id="logout">
+            Log Out
+          </button>
         </div>
+        {{/if}}
       </div>
     </div>
   </div>
-  <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
 </nav>
 
 {{{ body }}}
