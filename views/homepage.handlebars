@@ -1,20 +1,5 @@
-
-
-<form class="field" id="post-form">
-  <label class="label">Welcome {{name}} What do you want to blog about?</label>
-  <div class="control">
-    <textarea class="textarea" placeholder="Textarea"></textarea>
-  </div>
-  <button class="button is-success" type="submit">Post It</button>
-</form>
-
-{{#if posts.length}}
-<ul>
-  {{#each posts as |post|}}
-  <li>
-    <p>{{post.content}}</p>
-  </li>
-  {{/each}}
-</ul>
-{{/if}}
-<script src='./js/newpost.js'></script>
+{{#each posts as |post|}}
+<p>Posted by {{post.user.name}}</p>
+<p>{{post.content}}</p>
+<br>
+{{/each}}
