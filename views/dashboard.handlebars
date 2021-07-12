@@ -17,4 +17,23 @@
   {{/each}}
 </ul>
 {{/if}}
+
+{{#if posts.length}}
+<div class="card">
+   {{#each posts as |post|}}
+  <div class="card-content">
+    <div class="content">
+       {{post.content}}
+    </div>
+  </div>
+  <time>{{created_at}}</time>
+  <footer class="card-footer">
+    <a href="#" class="card-footer-item">Save</a>
+    <a href="#" class="card-footer-item">Edit</a>
+    <a href="#" class="card-footer-item">Delete</a>
+    <a href="#" class="card-footer-item">Repost</a>
+  </footer>
+  {{/each}}
+</div>
+{{/if}}
 <script src='./js/newpost.js'></script>
