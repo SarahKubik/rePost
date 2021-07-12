@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, User, Comment } = require('../models');
+const { Post, User } = require('../models');
 // const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -10,7 +10,35 @@ router.get('/', async (req, res) => {
       return;
     }
 
-    console.log('We made it this far')
+    // gets all posts by reverse chronological order
+    const postData = await Post.findAll({
+      order: [['createdAt', 'DESC']],
+      include: [
+        { 
+          model: User,
+          attributes: ['name']
+        }
+      ],
+    });
+
+    const posts = postData.map((post) => post.get({ plain: true }));
+
+    res.render('homepage', {
+      posts,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/dashboard', async (req, res) => {
+  try {
+
+    if (!req.session.logged_in) {
+      res.redirect('/login');
+      return;
+    }
 
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
@@ -25,7 +53,7 @@ router.get('/', async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    res.render('homepage', {
+    res.render('dashboard', {
       ...user,
       logged_in: true
     });
