@@ -1,5 +1,5 @@
 {{#if posts.length}}
-<div class="card">
+<div class="card" id="post-list">
    {{#each posts as |post|}}
   <div class="card-content">
     <div class="content">
@@ -8,14 +8,10 @@
   </div>
   <time>Posted by {{post.user.name}} on {{format_date createdAt}}</time>
   <footer class="card-footer">
-    <button class="button is-success" type="submit">Repost</button>
+    <button class="button is-success reblog-btn" type="button" id="{{post.id}}">Repost</button>
   </footer>
   {{/each}}
 </div>
 {{/if}}
 
-{{!-- {{#each posts as |post|}}
-<p>Posted by {{post.user.name}}</p>
-<p>{{post.content}}</p>
-<br>
-{{/each}} --}}
+<script src="./js/reblog-button.js"></script>
