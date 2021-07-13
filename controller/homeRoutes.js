@@ -125,7 +125,7 @@ router.get('/reblog/:id', async (req, res) => {
     const trailObj = {trail: trail};
 
     res.render('reblog', {
-      ...trailObj,
+      trail,
       logged_in: true
     });
 
