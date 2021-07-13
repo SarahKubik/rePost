@@ -1,5 +1,21 @@
-{{#each posts as |post|}}
+{{#if posts.length}}
+<div class="card">
+   {{#each posts as |post|}}
+  <div class="card-content">
+    <div class="content">
+       {{post.content}}
+    </div>
+  </div>
+  <time>Posted by {{post.user.name}} @ {{format_date createdAt}}</time>
+  <footer class="card-footer">
+    <button class="button is-success" type="submit">Repost</button>
+  </footer>
+  {{/each}}
+</div>
+{{/if}}
+
+{{!-- {{#each posts as |post|}}
 <p>Posted by {{post.user.name}}</p>
 <p>{{post.content}}</p>
 <br>
-{{/each}}
+{{/each}} --}}

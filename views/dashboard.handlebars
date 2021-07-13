@@ -8,7 +8,7 @@
   <button class="button is-success" type="submit">Post It</button>
 </form>
 
-{{#if posts.length}}
+{{!-- {{#if posts.length}}
 <ul>
   {{#each posts as |post|}}
   <li>
@@ -16,7 +16,7 @@
   </li>
   {{/each}}
 </ul>
-{{/if}}
+{{/if}} --}}
 
 {{#if posts.length}}
 <div class="card">
@@ -26,13 +26,10 @@
        {{post.content}}
     </div>
   </div>
-  <time>{{created_at}}</time>
-  <footer class="card-footer">
-    <a href="#" class="card-footer-item">Save</a>
-    <a href="#" class="card-footer-item">Edit</a>
-    <a href="#" class="card-footer-item">Delete</a>
-    <a href="#" class="card-footer-item">Repost</a>
-  </footer>
+  <time>Posted @ {{format_date createdAt}}</time>
+  {{!-- <footer class="card-footer">
+    <button class="button is-success" type="submit">Repost</button>
+  </footer> --}}
   {{/each}}
 </div>
 {{/if}}
