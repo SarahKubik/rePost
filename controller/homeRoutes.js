@@ -53,6 +53,8 @@ router.get('/dashboard', async (req, res) => {
 
     const user = userData.get({ plain: true });
 
+    console.log(user);
+
     res.render('dashboard', {
       ...user,
       logged_in: true
@@ -69,5 +71,67 @@ router.get('/login', (req, res) => {
   }
   res.render('login');
 });
+
+router.get('/reblog/:id', async (req, res) => {
+  try {
+
+    console.log(`
+    
+    
+    We routed
+    
+    
+    `)
+
+    if (!req.session.logged_in) {
+      res.redirect('/login');
+      return;
+    }
+
+    let ref_id = req.params.id;
+
+    console.log(`
+    
+    ${ref_id}
+    
+    
+    `);
+
+    let trail = []
+
+    while (ref_id) {
+      const refData = await Post.findByPk(ref_id, {
+        include: [
+          {
+            model: User,
+            attributes: ['name']
+          }
+        ]
+      });
+
+      // console.log(refData);
+
+      const refPost = refData.get({ plain: true });
+
+      // console.log(refPost); 
+
+      trail.unshift({name: refPost.user.name, content: refPost.content})
+
+      ref_id = refPost.post_id;
+    }
+
+    console.log(trail);
+
+    const trailObj = {trail: trail};
+
+    res.render('reblog', {
+      ...trailObj,
+      logged_in: true
+    });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
 
 module.exports = router;
