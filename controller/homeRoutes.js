@@ -23,6 +23,37 @@ router.get('/', async (req, res) => {
 
     const posts = postData.map((post) => post.get({ plain: true }));
 
+    posts.forEach(async (post) => {
+      
+      let trail = [];
+
+      let ref_id = post.post_id;
+
+      while (ref_id && trail.length < 3) {
+        const refData = await Post.findByPk(ref_id, {
+          include: [
+            {
+              model: User,
+              attributes: ['name']
+            }
+          ]
+        });
+  
+        const refPost = refData.get({ plain: true });
+  
+        trail.unshift({name: refPost.user.name, content: refPost.content, createdAt: refPost.createdAt})
+  
+        ref_id = refPost.post_id;
+      }
+
+      if (ref_id) {
+        post.follow_tag = true;
+      }
+
+      post.trail = trail;
+
+    });
+
     res.render('homepage', {
       posts,
       logged_in: true
@@ -75,27 +106,12 @@ router.get('/login', (req, res) => {
 router.get('/reblog/:id', async (req, res) => {
   try {
 
-    console.log(`
-    
-    
-    We routed
-    
-    
-    `)
-
     if (!req.session.logged_in) {
       res.redirect('/login');
       return;
     }
 
     let ref_id = req.params.id;
-
-    console.log(`
-    
-    ${ref_id}
-    
-    
-    `);
 
     let trail = []
 
@@ -109,11 +125,7 @@ router.get('/reblog/:id', async (req, res) => {
         ]
       });
 
-      // console.log(refData);
-
       const refPost = refData.get({ plain: true });
-
-      // console.log(refPost); 
 
       trail.unshift({name: refPost.user.name, content: refPost.content})
 
@@ -122,7 +134,7 @@ router.get('/reblog/:id', async (req, res) => {
 
     console.log(trail);
 
-    const trailObj = {trail: trail};
+    // const trailObj = {trail: trail};
 
     res.render('reblog', {
       trail,
