@@ -1,4 +1,29 @@
 {{#if posts.length}}
+<div class="card col-6 my-4">
+     {{#each posts as |post|}}
+    <form class="field" id="post-form">
+      <div class="d-flex justify-content-between">
+        <div>
+           Posted by {{post.user.name}}
+        </div>
+        <div>
+           created on {{format_date createdAt}}
+        </div>
+   </div>
+    <div class="control">
+      <textarea class="form-control" style="min-width: 50%">{{post.content}}</textarea>
+       
+    </div>
+    </form>
+      <div class="card-body">
+        <a href="#" class="btn btn-primary">rePOST</a>
+      </div>
+      {{/each}}
+    </div>
+    {{/if}}
+
+
+{{!-- {{#if posts.length}}
 <div class="card" id="post-list">
    {{#each posts as |post|}}
   <div class="card-content">
@@ -7,11 +32,11 @@
     </div>
   </div>
   <time>Posted by {{post.user.name}} on {{format_date createdAt}}</time>
-  <footer class="card-footer">
-    <button class="button is-success reblog-btn" type="button" id="{{post.id}}">Repost</button>
+  <footer class="card-footer justify-content-center">
+    <button class="btn btn-outline-success reblog-btn" id="{{post.id}}" type="button">rePOST</button>
   </footer>
   {{/each}}
 </div>
-{{/if}}
+{{/if}} --}}
 
 <script src="./js/reblog-button.js"></script>
