@@ -1,41 +1,29 @@
 
 
 <div class="card col-6">
-  <form class="field" id="post-form">
-  <label class="label">Welcome <strong>{{name}}</strong> What do you want to blog about?</label>
-  <div class="control"> 
-    <textarea class="form-control" style="min-width: 50%"></textarea>
-  </div>
+  <form class="form-group" id="post-form">
+    <label for="post-area">Welcome <strong>{{name}}</strong> What do you want to blog about?</label>
+    <textarea class="form-control" id="post-area" style="min-width: 50%"></textarea>
+    <button class="btn col-2 btn-primary" type="submit">Post</a>
   </form>
-    <div class="card-body">
-      <a href="#" class="btn btn-primary">Post</a>
-    </div>
-  </div>
+</div>
 
 
 
 <h2>Recent posts:</h2>
 {{#if posts.length}}
 <div class="card col-6 my-4">
-     {{#each posts as |post|}}
-    <form class="field" id="post-form">
-      <div class="d-flex justify-content-between">
-        <div>
-           Posted by {{name}}
-        </div>
-        <div>
-           created on {{format_date createdAt}}
-        </div>
-   </div>
-    <div class="control">
-      <textarea class="form-control" style="min-width: 50%">{{post.content}}</textarea>
-       
-    </div>
-    </form>
-      {{!-- <div class="card-body">
-        <a href="#" class="btn btn-primary">rePOST</a>
-      </div> --}}
-      {{/each}}
-    </div>
-    {{/if}}
+  {{#each posts as |post|}}
+  <div class="card-body">
+    <h5 class="card-title">
+        {{post.content}}
+    </h5>
+  </div>
+  <div class="card-text">
+    <p>created on {{format_date createdAt}}</p>
+  </div>
+  {{/each}}
+</div>
+{{/if}}
+
 <script src='./js/newpost.js'></script>

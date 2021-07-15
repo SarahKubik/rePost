@@ -30,20 +30,12 @@ router.get('/', async (req, res) => {
       let ref_id = post.post_id;
 
       while (ref_id && trail.length < 3) {
-        const refData = await Post.findByPk(ref_id, {
-          include: [
-            {
-              model: User,
-              attributes: ['name']
-            }
-          ]
-        });
+
+        let trailbite = posts.find(p => post.post_id == p.id )
   
-        const refPost = refData.get({ plain: true });
+        trail.unshift(trailbite);
   
-        trail.unshift({name: refPost.user.name, content: refPost.content, createdAt: refPost.createdAt})
-  
-        ref_id = refPost.post_id;
+        ref_id = trailbite.id;
       }
 
       if (ref_id) {
@@ -51,7 +43,6 @@ router.get('/', async (req, res) => {
       }
 
       post.trail = trail;
-
     });
 
     res.render('homepage', {
