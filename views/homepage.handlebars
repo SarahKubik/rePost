@@ -1,30 +1,36 @@
 {{#if posts.length}}
-<div class="card col-6 my-4" id="post-list">
+<div class="col-6 my-4" id="post-list">
   {{#each posts as |post|}}
-  <div class="card-body">
-    {{#each post.trail as |trail|}}
-    <div class="card-body">
-      <div class="card-text">
-       {{trail.content}}
-      </div>
-      <p>Posted by {{trail.name}} on {{format_date trail.createdAt}}</p>
-      <p>---------------</p>
-    </div>
-    {{/each}}
+  <div class="card">
+    {{#if post.trail}}
+    <ul class="list-unstyled card-body">
+      {{#each post.trail as |trail|}}
+      <li class="media">
+        <img src="..." class="mr-3" alt="...">
+        <div class="media-body">
+          <p class="mt-0 mb-1 card-text">Posted by {{trail.name}} on {{format_date trail.createdAt}}</p>
+          {{trail.content}}
+          <p>---------------</p>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+    {{/if}}
     
-    <div class="d-flex justify-content-between">
+    <div class="card-body">
       <h5 class="card-title">
-          Posted by {{post.user.name}} on {{format_date createdAt}}
+          {{post.content}}
       </h5>
     </div>
     <div class="card-text">
-      <p>{{post.content}}</p>
+      <p>Posted by {{post.user.name}} on {{format_date createdAt}}</p>
     </div>
     {{#if post.follow_tag}}
     <p style="font-style: italic;">Click the post to see more...</p>
     {{/if}}
+    <button class="btn col-2 btn-primary reblog" id="{{post.id}}">rePOST</button>
   </div>
-  <button class="btn btn-primary" id="{{post.id}}">rePOST</button>
+  <br>
   {{/each}}
   </div>
 {{/if}}
