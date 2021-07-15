@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Post, User } = require('../models');
-// const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
@@ -103,7 +103,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/reblog/:id', async (req, res) => {
+router.get('/reblog/:id', withAuth, async (req, res) => {
   try {
 
     if (!req.session.logged_in) {
@@ -131,10 +131,6 @@ router.get('/reblog/:id', async (req, res) => {
 
       ref_id = refPost.post_id;
     }
-
-    console.log(trail);
-
-    // const trailObj = {trail: trail};
 
     res.render('reblog', {
       trail,
