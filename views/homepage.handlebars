@@ -6,11 +6,10 @@
     <ul class="list-unstyled card-body ">
       {{#each post.trail as |trail|}}
       <li class="media">
-        <img src="..." class="mr-3 rounded" alt="...">
-        <div class="media-body">
-          <p class="mt-0 mb-1 card-text">Posted by {{trail.name}} on {{format_date trail.createdAt}}</p>
+        {{!-- <img src="..." class="mr-3 rounded" alt="..."> --}}
+        <div class="media-body border-bottom pb-1">
+          <p class="mt-0 mb-1 card-text pb-1" style="font-weight: bold; font-size: smaller">{{trail.user.name}}</p>
           {{trail.content}}
-          <p>---------------</p>
         </div>
       </li>
       {{/each}}

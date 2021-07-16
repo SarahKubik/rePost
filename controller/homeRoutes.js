@@ -31,7 +31,7 @@ router.get('/', async (req, res) => {
 
       while (ref_id && trail.length < 3) {
 
-        let trailbite = posts.find(p => post.post_id == p.id )
+        let trailbite = posts.find(p => ref_id == p.id )
   
         trail.unshift(trailbite);
   
