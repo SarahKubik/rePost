@@ -13,13 +13,15 @@ A blog sharing content managmement application.
 
 ### Technologies Used
 >
->* Node Package Manager
->* Install Express
->* Sequelize
->* Dotenv
->* Express Handlebars
->* MySql2
->* Bcrypt
->* Connection-session-sequelize
->* Postman
->* Bulma
+>* [Node Package Manager](https://nodejs.org/)
+>* [Expressjs](https://expressjs.com)
+>* [Sequelize](https://sequelize.org)
+>* [Connection-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize)
+>* [Dotenv](https://www.npmjs.com/package/dotenv)
+>* [Express Handlebars](https://www.npmjs.com/package/express-handlebars)
+>* [MySql2](https://www.npmjs.com/package/mysql2)
+>* [Bcrypt](https://www.npmjs.com/package/bcrypt)
+>* [Postman](https://www.postman.com)
+>* [Bootstrap](https://getbootstrap.com)
+>* [Coolors](https://coolors.co)
+>* [Quilljs](https://quilljs.com)
