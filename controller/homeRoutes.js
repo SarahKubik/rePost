@@ -35,7 +35,7 @@ router.get('/', async (req, res) => {
   
         trail.unshift(trailbite);
   
-        ref_id = trailbite.id;
+        ref_id = trailbite.post_id;
       }
 
       if (ref_id) {
