@@ -2,9 +2,9 @@
 
 <div class="card col-6 my-4 mx-auto text-center">
   <form class="form-group" id="post-form">
-    <label for="post-area">Welcome <strong>{{name}}!</strong> What do you want to blog about?</label>
-    <textarea class="form-control" id="post-area" style="min-width: 50%"></textarea>
-    <button class="btn btn-sm col-2 btn-primary" type="submit">Post</a>
+    <label for="editor">Welcome <strong>{{name}}!</strong> What do you want to blog about?</label>
+    <div id="editor"></div>
+    <button class="btn btn-sm col-2 btn-primary" type="button" id="post-quill">Post</a>
   </form>
 </div>
 
@@ -16,7 +16,7 @@
   {{#each posts as |post|}}
   <div class="card-body">
     <h5 class="card-title">
-        {{post.content}}
+        {{{post.content}}}
     </h5>
   </div>
   <div class="card-text text-right border-bottom">
@@ -26,4 +26,5 @@
 </div>
 {{/if}}
 
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 <script src='./js/newpost.js'></script>

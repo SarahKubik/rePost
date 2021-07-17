@@ -10,7 +10,7 @@
         {{!-- <img src="..." class="mr-3 rounded" alt="..."> --}}
         <div class="media-body border-bottom py-1">
           <p class="mt-0 mb-1 card-text pb-1" style="font-weight: bold; font-size: smaller"></p>{{trail.user.name}}</p>
-          {{trail.content}}
+          {{{trail.content}}}
         </div>
       </li>
       {{/if}}
@@ -19,12 +19,12 @@
     {{/if}}
     
     {{#if post.content}}
-    <div class="card-body text-center">
+    <div class="card-body">
       <h5 class="card-title">
-          {{post.content}}
+          {{{post.content}}}
       </h5>
     </div>
-    <div class="card-text text-center">
+    <div class="card-text">
       <p>Posted by {{post.user.name}} on {{format_date createdAt}}</p>
     </div>
     {{else}}
