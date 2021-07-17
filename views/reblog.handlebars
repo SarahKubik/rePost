@@ -6,16 +6,28 @@
   </li>
   {{/each}}
 </ul> --}}
-<div class="container border mt-4">
+
+   <div class = "container my-4"> 
+     <div class = "font-weight-bold, text-center"> 
+      <h1>Add your thoughts or rePost!</h1>
+   </div>
+</div>
+
+  <!-- Content here -->
+
+<div class="container border mt-4,border border-light p-3 mb-4">
   <div class="card">
     <ul class="list-unstyled">
   {{#each trail}}
   <li class="media">
-    <img src="..." class="mr-3" alt="...">
+    {{!-- <img src="..." class="mr-3" alt="..."> --}}
     <div class="media-body">
-      <h5 class="mt-0 mb-1">{{name}}</h5>
+      <h5 class="mt-0 mb-1m,bold">{{name}}</h5>
       {{content}}
-    </div>
+    <div class="card-text text-right border-bottom">
+     <p> created on {{format_date createdAt}}</p>
+  </div>
+  </div>
   </li>
   {{/each}}
   </ul>
@@ -23,37 +35,10 @@
   <div class="control">
     <textarea class="textarea" style="min-width: 100%" placeholder="Add something here..."></textarea>
   </div>
-  <button class="button is-success" type="submit">Post It</button>
+  <button class="btn col-2 mx-auto btn-primary mb-3" type="submit">rePost</button>
   </form> 
   </div>
 </div>
 
-
-{{!-- <article class="media">
-  <figure class="media-left">
-    <p class="image is-64x64">
-      <img src="https://bulma.io/images/placeholders/128x128.png">
-    </p>
-  </figure>
-   {{#each trail}}
-  <div class="media-content">
-    <div class="content">     
-      <p>
-        <strong><p>{{name}}</p></strong>
-        <br>
-        {{content}}
-        <small><a>Like</a> · <a>Reply</a> · 3 hrs</small>
-      </p>
-    </div>
-        {{/each}}
-  </div>
-</article>
-
-<form class="field" id="post-form">
-  <div class="control">
-    <textarea class="textarea" placeholder="Add something here..."></textarea>
-  </div>
-  <button class="button is-success" type="submit">Post It</button>
-</form>  --}}
 
 <script src="/js/reblog.js"></script>
