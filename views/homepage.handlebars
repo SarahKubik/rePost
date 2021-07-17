@@ -3,7 +3,7 @@
   {{#each posts as |post|}}
   <div class="card custom-card">
     {{#if post.trail}}
-    <ul class="list-unstyled card-body ">
+    <ul class="list-unstyled card-body text-break">
       {{#each post.trail as |trail|}}
       <li class="media">
         {{!-- <img src="..." class="mr-3 rounded" alt="..."> --}}
@@ -18,12 +18,12 @@
     
     {{#if post.content}}
     <div class="card-body">
-      <h5 class="card-title">
+      <h5 class="card-text">
           {{{post.content}}}
       </h5>
     </div>
-    <div class="card-text">
-      <p>Posted by {{post.user.name}} on {{format_date createdAt}}</p>
+    <div class="card-footer text-right">
+      <small class="text-muted">Posted by <strong>{{post.user.name}}</strong> on {{format_date createdAt}} </small>
     </div>
     {{else}}
     <p style="font-size: smaller; font-style: italic;">RePOSTed by {{post.user.name}} on {{format_date createdAt}}</p>
@@ -32,6 +32,7 @@
     <p class="text-center" style="font-style: italic;">Click the post to see more...</p>
     {{/if}}
     {{#if post.content}}
+    <button class="btn col-2 btn-sm mx-auto btn-primary mb-3 reblog" id="{{post.id}}">rePOST</button>
     <button class="btn col-2 btn-sm mx-auto btn-primary mb-3 reblog" id="{{post.id}}">rePOST</button>
     {{else}}
     <button class="btn col-2 btn-sm mx-auto btn-primary mb-3 reblog" id="{{post.post_id}}">rePOST</button>
