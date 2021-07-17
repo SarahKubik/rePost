@@ -1,5 +1,6 @@
 var quill = new Quill('#editor', {
-  theme: 'snow'
+  theme: 'snow',
+  placeholder: 'Penny for your thoughts...'
 });
 
 async function newFormHandler(event) {

@@ -27,6 +27,7 @@
           <a class="nav-link" href="#">Friends</a>
         </li>
       </ul>
+      {{#unless isLoginPage}}
        {{#if logged_in}}
          <button class="btn btn-outline-light" id="logout">
             Log Out
@@ -35,6 +36,7 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Signup</button>
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
       {{/if}}
+      {{/unless}}
     </div>
   </nav>
 {{!-- <nav class="navbar" role="navigation" aria-label="main navigation">

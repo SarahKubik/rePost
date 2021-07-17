@@ -11,19 +11,32 @@
 
 
 <h2 class="text-center">Recent posts:</h2>
-{{#if posts.length}}
-<div class="card mx-auto col-8 my-4">
-  {{#each posts as |post|}}
-  <div class="card-body">
+{{#if userPosts.length}}
+  {{#each userPosts as |post|}}
+  <div class="card mx-auto col-8 my-4">
+    {{#if post.trail}}
+    <ul class="list-unstyled card-body ">
+      {{#each post.trail as |trail|}}
+      {{#if trail.content}}
+      <li class="media">
+        {{!-- <img src="..." class="mr-3 rounded" alt="..."> --}}
+        <div class="media-body border-bottom py-1">
+          <p class="mt-0 mb-1 card-text pb-1" style="font-weight: bold; font-size: smaller"></p>{{trail.user.name}}</p>
+          {{{trail.content}}}
+        </div>
+      </li>
+      {{/if}}
+      {{/each}}
+    </ul>
+    {{/if}}
     <h5 class="card-title">
         {{{post.content}}}
     </h5>
-  </div>
-  <div class="card-text text-right border-bottom">
+    <div class="card-text text-right border-bottom">
     <p>created on {{format_date createdAt}}</p>
   </div>
+  </div>
   {{/each}}
-</div>
 {{/if}}
 
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
