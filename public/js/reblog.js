@@ -5,7 +5,14 @@ var quill = new Quill('#editor', {
 async function newFormHandler(event) {
   event.preventDefault();
 
-  const content = quill.root.innerHTML
+  let content = quill.getText().trim();
+
+  if (content == "") {
+    content = null;
+  } else {
+    content = quill.root.innerHTML;
+  }
+
   const post_id = window.location.toString().split('/')[window.location.toString().split('/').length - 1];
 
   const response = await fetch(`/api/posts`, {

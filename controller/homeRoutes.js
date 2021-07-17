@@ -31,9 +31,11 @@ router.get('/', async (req, res) => {
 
       while (ref_id && trail.length < 3) {
 
-        let trailbite = posts.find(p => ref_id == p.id )
-  
-        trail.unshift(trailbite);
+        let trailbite = posts.find(p => ref_id == p.id)
+
+        if (trailbite.content) {
+          trail.unshift(trailbite);
+        }
   
         ref_id = trailbite.post_id;
       }
@@ -43,7 +45,7 @@ router.get('/', async (req, res) => {
       }
 
       post.trail = trail;
-    });
+    }); 
 
     res.render('homepage', {
       posts,
@@ -118,7 +120,9 @@ router.get('/reblog/:id', withAuth, async (req, res) => {
 
       const refPost = refData.get({ plain: true });
 
-      trail.unshift(refPost)
+      if (refPost.content) {
+        trail.unshift(refPost);
+      }
 
       ref_id = refPost.post_id;
     }
