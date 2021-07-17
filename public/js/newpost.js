@@ -1,7 +1,18 @@
+var quill = new Quill('#editor', {
+  theme: 'snow'
+});
+
 async function newFormHandler(event) {
   event.preventDefault();
 
-  const content = document.querySelector('#post-area').value.trim();
+  let content = quill.getText().trim();
+
+  if (content == "") {
+    alert("Post cannot be empty")
+    return;
+  } else {
+    content = quill.root.innerHTML;
+  }
 
   const response = await fetch(`/api/posts`, {
     method: 'POST',
@@ -20,4 +31,4 @@ async function newFormHandler(event) {
   }
 };
 
-document.querySelector('#post-form').addEventListener('submit', newFormHandler);
+document.querySelector('#post-quill').addEventListener('click', newFormHandler);

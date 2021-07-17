@@ -19,12 +19,12 @@
     {{/if}}
     
     {{#if post.content}}
-    <div class="card-body text-center">
+    <div class="card-body">
       <h5 class="card-title">
-          {{post.content}}
+          {{{post.content}}}
       </h5>
     </div>
-    <div class="card-text text-center">
+    <div class="card-text">
       <p>Posted by {{post.user.name}} on {{format_date createdAt}}</p>
     </div>
     {{else}}
