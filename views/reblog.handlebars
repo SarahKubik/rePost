@@ -6,16 +6,18 @@
   </li>
   {{/each}}
 </ul> --}}
-<div class="container border mt-4">
+<div class="container border mt-4,border border-info">
   <div class="card">
     <ul class="list-unstyled">
   {{#each trail}}
   <li class="media">
-    <img src="..." class="mr-3" alt="...">
+    {{!-- <img src="..." class="mr-3" alt="..."> --}}
     <div class="media-body">
       <h5 class="mt-0 mb-1">{{name}}</h5>
       {{content}}
-   
+    <div class="card-text text-right border-bottom">
+    <time>Posted on{{format_date createdAt}}</time>
+  </div>
   </li>
   {{/each}}
   </ul>
