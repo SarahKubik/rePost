@@ -1,22 +1,8 @@
 async function newFormHandler(event) {
   event.preventDefault();
 
-  console.log(`
-  
-  Sumbitted
-  
-  `);
-
   const content = document.querySelector('.textarea').value.trim();
   const post_id = window.location.toString().split('/')[window.location.toString().split('/').length - 1];
-
-  // console.log(`
-  
-  
-  
-  // ${post_id}
-  
-  // `)
 
   const response = await fetch(`/api/posts`, {
     method: 'POST',
