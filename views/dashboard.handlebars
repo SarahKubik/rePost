@@ -9,12 +9,12 @@
 </div>
 
 
-<div class="bg-light container text-center mx-auto  custom-card col-3 custom-h2">
+<div class="bg-light container text-center mx-auto custom-card col-3 custom-h2">
   <h2>Recent posts:</h2>
 </div>
 {{#if userPosts.length}}
   {{#each userPosts as |post|}}
-  <div class="card mx-auto col-8 my-4">
+  <div class="card custom-card mx-auto col-8 my-4">
     {{#if post.trail}}
     <ul class="list-unstyled card-body ">
       {{#each post.trail as |trail|}}

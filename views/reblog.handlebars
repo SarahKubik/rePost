@@ -7,35 +7,34 @@
   {{/each}}
 </ul> --}}
 
-   <div class = "container my-4"> 
+   {{!-- <div class = "container my-4"> 
      <div class = "font-weight-bold, text-center bg-light"> 
       <h1>Add your thoughts or rePost!</h1>
    </div>
-</div>
+</div> --}}
 
   <!-- Content here -->
 
 <div class="container border mt-4,border border-light p-3 mb-4">
-  <div class="card">
+  <div class="card custom-card">
     <ul class="list-unstyled">
-  {{#each trail}}
-  <li class="media">
-    {{!-- <img src="..." class="mr-3" alt="..."> --}}
-    <div class="media-body">
-      <h5 class="mt-0 mb-1m,bold">{{user.name}}</h5>
-      {{{content}}}
-    <div class="card-text text-right border-bottom">
-     <p> created by {{format_date createdAt}}</p>
-  </div>
-  </div>
-  </li>
-  {{/each}}
-  </ul>
-  <form class="field text-center" id="post-form">
-  <div class="control" id="editor">
-  </div>
-  <button class="btn col-2 mx-auto btn-primary mb-3" type="button" id="submit-quill">rePost</button>
-  </form> 
+      {{#each trail}}
+      <li class="media">
+        {{!-- <img src="..." class="mr-3" alt="..."> --}}
+        <div class="media-body">
+          <h5 class="mt-0 mb-1m,bold">{{user.name}}</h5>
+          {{{content}}}
+          <div class="card-text text-right border-bottom">
+            <p> created by {{format_date createdAt}}</p>
+          </div>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+    <form class="field text-center" id="post-form">
+      <div class="control" id="editor"></div>
+      <button class="btn col-2 mx-auto btn-primary mb-3" type="button" id="submit-quill">rePost</button>
+    </form> 
   </div>
 </div>
 
