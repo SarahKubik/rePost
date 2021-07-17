@@ -18,6 +18,18 @@ router.post('/', withAuth, async (req, res) => {
 router.get('/', withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({
+      order: [['createdAt', 'DESC']]
+    });
+
+    res.status(200).json(postData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.get('/mine', withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findAll({
       where: {
         user_id: req.session.user_id
       },
@@ -59,7 +71,7 @@ router.delete('/:id', async (req, res) => {
 
     res.status(200).json(postData);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json(err);  
   }
 });
 
