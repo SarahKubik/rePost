@@ -13,7 +13,7 @@ A blog sharing content managmement application.
 
 ### Technologies Used
 >
->* [Node Package Manager](https://nodejs.org/)
+>* [Node Package Manager](https://nodejs.org)
 >* [Expressjs](https://expressjs.com)
 >* [Sequelize](https://sequelize.org)
 >* [Connection-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize)
