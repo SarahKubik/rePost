@@ -1,28 +1,28 @@
 
 
-<div class="card col-6 my-4 mx-auto text-center">
+<div class="card col-8 my-4 mx-auto text-center">
   <form class="form-group" id="post-form">
-    <label for="editor">Welcome <strong>{{name}}!</strong> What do you want to blog about?</label>
+    <label for="editor">What is on your mind <strong>{{name}}</strong>? </label>
     <div id="editor"></div>
     <button class="btn btn-sm col-2 btn-primary" type="button" id="post-quill">Post</a>
   </form>
 </div>
 
 
-<div class="bg-light container text-center mx-auto custom-card col-3 custom-h2">
-  <h2>Recent posts:</h2>
+<div class="bg-light container text-center mx-auto custom-card col-2 custom-h2">
+  <h4>Recent posts:</h4>
 </div>
 {{#if userPosts.length}}
   {{#each userPosts as |post|}}
-  <div class="card custom-card mx-auto col-8 my-4">
+  <div class="card custom-card mx-auto col-8 mb-4">
     {{#if post.trail}}
-    <ul class="list-unstyled card-body ">
+    <ul class="list-unstyled card-body">
       {{#each post.trail as |trail|}}
       {{#if trail.content}}
-      <li class="media">
+      <li class="media text-break">
         {{!-- <img src="..." class="mr-3 rounded" alt="..."> --}}
         <div class="media-body border-bottom py-1">
-          <p class="mt-0 mb-1 card-text pb-1" style="font-weight: bold; font-size: smaller"></p>{{trail.user.name}}</p>
+          <p class="mt-0 mb-1 card-text pb-1"><strong class="text-dark">{{trail.user.name}}</strong> </p>
           {{{trail.content}}}
         </div>
       </li>
@@ -34,7 +34,7 @@
         {{{post.content}}}
     </h5>
     <div class="card-text text-right border-bottom">
-    <p>created on {{format_date createdAt}}</p>
+    <small class="text-muted">Posted on {{format_date createdAt}} </small>
   </div>
   </div>
   {{/each}}
