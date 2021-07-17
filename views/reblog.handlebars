@@ -6,7 +6,9 @@
   </li>
   {{/each}}
 </ul> --}}
-<ul class="list-unstyled">
+<div class="container border mt-4">
+  <div class="card">
+    <ul class="list-unstyled">
   {{#each trail}}
   <li class="media">
     <img src="..." class="mr-3" alt="...">
@@ -17,12 +19,15 @@
   </li>
   {{/each}}
   </ul>
-  <form class="field" id="post-form">
+  <form class="field text-center" id="post-form">
   <div class="control">
-    <textarea class="textarea" placeholder="Add something here..."></textarea>
+    <textarea class="textarea" style="min-width: 100%" placeholder="Add something here..."></textarea>
   </div>
   <button class="button is-success" type="submit">Post It</button>
-</form> 
+  </form> 
+  </div>
+</div>
+
 
 {{!-- <article class="media">
   <figure class="media-left">
