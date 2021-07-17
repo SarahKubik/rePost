@@ -1,6 +1,6 @@
 
 
-<div class="card col-6 my-4 mx-auto text-center">
+<div class="card custom-card col-6 my-4 mx-auto text-center">
   <form class="form-group" id="post-form">
     <label for="editor">Welcome <strong>{{name}}!</strong> What do you want to blog about?</label>
     <div id="editor"></div>
@@ -8,6 +8,10 @@
   </form>
 </div>
 
+
+<div class="bg-light container text-center mx-auto  custom-card col-3 custom-h2">
+  <h2>Recent posts:</h2>
+</div>
 
 
 <h2 class="text-center">Recent posts:</h2>
@@ -30,6 +34,7 @@
     </ul>
     {{/if}}
     <h5 class="card-title mt-1 ml-1">
+
         {{{post.content}}}
     </h5>
     <div class="card-text text-right border-bottom">

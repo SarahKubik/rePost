@@ -1,7 +1,7 @@
 {{#if posts.length}}
-<div class="col-8 my-4 mx-auto" id="post-list">
+<div class="col-8 my-4 mx-auto " id="post-list">
   {{#each posts as |post|}}
-  <div class="card ">
+  <div class="card custom-card">
     {{#if post.trail}}
     <ul class="list-unstyled card-body ">
       {{#each post.trail as |trail|}}
@@ -34,7 +34,7 @@
     {{#if post.content}}
     <button class="btn col-2 btn-sm mx-auto btn-primary mb-3 reblog" id="{{post.id}}">rePOST</button>
     {{else}}
-    <button class="btn col-2 mx-auto btn-primary mb-3 reblog" id="{{post.post_id}}">rePOST</button>
+    <button class="btn col-2 btn-sm mx-auto btn-primary mb-3 reblog" id="{{post.post_id}}">rePOST</button>
     {{/if}}
   </div>
   <br>
