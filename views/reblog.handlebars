@@ -32,13 +32,12 @@
   {{/each}}
   </ul>
   <form class="field text-center" id="post-form">
-  <div class="control">
-    <textarea class="textarea" style="min-width: 100%" placeholder="Add something here..."></textarea>
+  <div class="control" id="editor">
   </div>
-  <button class="btn col-2 mx-auto btn-primary mb-3" type="submit">rePost</button>
+  <button class="btn col-2 mx-auto btn-primary mb-3" type="button" id="submit-quill">rePost</button>
   </form> 
   </div>
 </div>
 
-
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 <script src="/js/reblog.js"></script>

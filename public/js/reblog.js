@@ -1,7 +1,11 @@
+var quill = new Quill('#editor', {
+  theme: 'snow'
+});
+
 async function newFormHandler(event) {
   event.preventDefault();
 
-  const content = document.querySelector('.textarea').value.trim();
+  const content = quill.root.innerHTML
   const post_id = window.location.toString().split('/')[window.location.toString().split('/').length - 1];
 
   const response = await fetch(`/api/posts`, {
@@ -22,4 +26,4 @@ async function newFormHandler(event) {
   }
 };
 
-document.querySelector('#post-form').addEventListener('submit', newFormHandler);
+document.querySelector('#submit-quill').addEventListener('click', newFormHandler);
