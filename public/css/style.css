@@ -3,12 +3,10 @@ body {
     
 }
 .custom-card {
-  opacity: .8;
+  opacity: .95;
   box-shadow: 5px 5px 10px #6c757d !important;
 }
-.custom-h2 {
-  
-}
+
 ul {
   list-style-position: inside !important;
 }
