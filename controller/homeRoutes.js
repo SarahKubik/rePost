@@ -118,7 +118,7 @@ router.get('/reblog/:id', withAuth, async (req, res) => {
 
       const refPost = refData.get({ plain: true });
 
-      trail.unshift({name: refPost.user.name, content: refPost.content})
+      trail.unshift(refPost)
 
       ref_id = refPost.post_id;
     }
