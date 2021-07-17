@@ -8,7 +8,7 @@
 </ul> --}}
 
    <div class = "container my-4"> 
-     <div class = "font-weight-bold, text-center"> 
+     <div class = "font-weight-bold, text-center bg-light"> 
       <h1>Add your thoughts or rePost!</h1>
    </div>
 </div>
@@ -22,10 +22,10 @@
   <li class="media">
     {{!-- <img src="..." class="mr-3" alt="..."> --}}
     <div class="media-body">
-      <h5 class="mt-0 mb-1m,bold">{{name}}</h5>
+      <h5 class="mt-0 mb-1m,bold">{{user.name}}</h5>
       {{{content}}}
     <div class="card-text text-right border-bottom">
-     <p> created on {{format_date createdAt}}</p>
+     <p> created by {{format_date createdAt}}</p>
   </div>
   </div>
   </li>

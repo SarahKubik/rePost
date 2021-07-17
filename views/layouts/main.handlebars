@@ -12,29 +12,26 @@
   <script src="https://kit.fontawesome.com/3708f4dee4.js" crossorigin="anonymous"></script>
 </head>
 <body class="bg-light">
-  <nav class="navbar navbar-expand-lg navbar-light  bg-secondary">
+  <nav class="navbar navbar-light bg-secondary">
     <a class="navbar-brand" href="/">Welcome to rePOST</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto ">
+    <div class="container justify-content-between " id="navbarText">
+      <ul class="navbar-nav  mr-auto">
         
         <li class="nav-item">
-          <a class="nav-link" href="/dashboard">Dashboard</a>
+          <a class="nav-link text-light" href="/dashboard">Dashboard</a>
         </li>
-        <li class="nav-item">
+        {{!-- <li class="nav-item">
           <a class="nav-link" href="#">Friends</a>
-        </li>
+        </li> --}}
       </ul>
+
       {{#unless isLoginPage}}
-       {{#if logged_in}}
-         <button class="btn btn-outline-light" id="logout">
-            Log Out
-          </button>
-        {{else}}
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Signup</button>
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+      {{#if logged_in}}
+      <button class="btn btn-outline-light" id="logout">
+        Log Out
+      </button>
+      {{else}}
+      <a href="/login" class="btn btn-outline-success my-2 my-sm-0">Login</a>
       {{/if}}
       {{/unless}}
     </div>
