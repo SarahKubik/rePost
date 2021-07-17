@@ -5,11 +5,6 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
 
-    if (!req.session.logged_in) {
-      res.redirect('/login');
-      return;
-    }
-
     // gets all posts by reverse chronological order
     const postData = await Post.findAll({
       order: [['createdAt', 'DESC']],
@@ -65,22 +60,64 @@ router.get('/dashboard', async (req, res) => {
     }
 
     // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
+    // const userData = await User.findByPk(req.session.user_id, {
+    //   attributes: { exclude: ['password'] },
+    //   include: [
+    //     { 
+    //       model: Post,
+    //       order: [['createdAt', 'DESC']],
+    //       include: [
+    //         {
+    //           model: Post
+    //         }
+    //       ]
+    //     }
+    //   ],
+    // });
+
+    // const user = userData.get({ plain: true });
+
+    const userData = await User.findByPk(req.session.user_id);
+
+    user = userData.get({ plain: true })
+
+    const postData = await Post.findAll({
+      order: [['createdAt', 'DESC']],
       include: [
         { 
-          model: Post,
-          order: [['createdAt', 'DESC']]
+          model: User,
+          attributes: ['name']
         }
       ],
     });
 
-    const user = userData.get({ plain: true });
+    const allPosts = postData.map((post) => post.get({ plain: true }));
 
-    console.log(user);
+    const userPosts = allPosts.filter(post => req.session.user_id == post.user_id);
 
+    userPosts.forEach(async (post) => {
+      
+      let trail = [];
+
+      let ref_id = post.post_id;
+
+      while (ref_id) {
+
+        let trailbite = allPosts.find(p => ref_id == p.id)
+
+        if (trailbite.content) {
+          trail.unshift(trailbite);
+        }
+  
+        ref_id = trailbite.post_id;
+      }
+
+      post.trail = trail;
+    });
+    
     res.render('dashboard', {
-      ...user,
+      userPosts,
+      name: user.name,
       logged_in: true
     });
   } catch (err) {
@@ -93,7 +130,8 @@ router.get('/login', (req, res) => {
       res.redirect('/');
       return;
   }
-  res.render('login');
+
+  res.render('login', { isLoginPage: true });
 });
 
 router.get('/reblog/:id', withAuth, async (req, res) => {
