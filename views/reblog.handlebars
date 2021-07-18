@@ -33,7 +33,9 @@
     </ul>
     <form class="field text-center" id="post-form">
       <div class="control" id="editor"></div>
-      <button class="btn col-2 mx-auto btn-primary mb-3" type="button" id="submit-quill">rePost</button>
+      {{!-- <button class="btn col-2 mx-auto btn-primary mb-3" type="button" id="submit-quill">rePost</button> --}}
+      <button type="button" class="btn mx-1 col-2 btn-secondary reblog" id="{{post.id}}" data-bs-toggle="tooltip" data-bs-placement="top" title="rePOST">
+      <i class="bi bi-arrow-left-right"></i>
     </form> 
   </div>
 </div>
