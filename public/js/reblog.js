@@ -25,8 +25,7 @@ async function newFormHandler(event) {
   let content = quill.getContents().ops;
 
   if (content.length == 1 && content[0].insert.trim() == "") {
-    alert("Post cannot be empty")
-    return;
+    content = null;
   } else {
     content = quill.root.innerHTML;
   }
