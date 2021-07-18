@@ -1,4 +1,20 @@
+var toolbarOptions = [
+  ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+
+  [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+  [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+
+  [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+
+  [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+  ['link'],
+  ['clean']                                         // remove formatting button
+];
+
 var quill = new Quill('#editor', {
+  modules: {
+    toolbar: toolbarOptions
+  },
   theme: 'snow',
   placeholder: 'Add your thoughts or rePOST...'
 });
@@ -33,7 +49,7 @@ async function newFormHandler(event) {
   });
 
   if (response.ok) {
-    document.location.replace('/dashboard');
+    document.location.replace('/');
   } else {
     alert(response.statusText);
   }
