@@ -7,7 +7,7 @@ var toolbarOptions = [
   [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
 
   [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-  ['link'],
+  ['link', 'video'],
   ['clean']                                         // remove formatting button
 ];
 
@@ -19,12 +19,12 @@ var quill = new Quill('#editor', {
   placeholder: 'Penny for your thoughts...'
 });
 
-async function newFormHandler(event) {
+function newFormHandler(event) {
   event.preventDefault();
 
-  let content = quill.getText().trim();
+  let content = quill.getContents().ops;
 
-  if (content == "") {
+  if (content.length == 1 && content[0].insert.trim() == "") {
     alert("Post cannot be empty")
     return;
   } else {
