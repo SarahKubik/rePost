@@ -12,7 +12,7 @@ Post.init(
             autoIncrement: true,
         },
         content: {
-            type: DataTypes.STRING
+            type: DataTypes.TEXT
         },
         user_id: {
             type: DataTypes.INTEGER,
