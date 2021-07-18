@@ -19,7 +19,7 @@ var quill = new Quill('#editor', {
   placeholder: 'Penny for your thoughts...'
 });
 
-function newFormHandler(event) {
+async function newFormHandler(event) {
   event.preventDefault();
 
   let content = quill.getContents().ops;

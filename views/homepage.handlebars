@@ -48,7 +48,20 @@
     </div>
     
     {{else}}
-    <button class="btn col-2 btn-sm mx-auto btn-primary mb-3 reblog" id="{{post.post_id}}">rePOST</button>
+    {{!-- <button class="btn col-2 btn-sm mx-auto btn-primary mb-3 reblog" id="{{post.post_id}}">rePOST</button> --}}
+    <div class="btn-group" role="group" aria-label="post options">
+      {{!-- <button type="button" class="btn col-2 btn-sm mx-auto btn-primary mb-3 reblog" id="{{post.id}}">rePOST</button> --}}
+    
+      <button type="button" class="btn btn-sm mx-1 btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Like">
+      <i class="bi bi-heart"></i>
+      </button>
+      <button type="button" class="btn btn-sm mx-1 btn-secondary reblog" id="{{post.post_id}}" data-bs-toggle="tooltip" data-bs-placement="top" title="rePOST">
+      <i class="bi bi-arrow-left-right"></i>
+      </button>
+      <button type="button" class="btn btn-sm mx-1 btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Comment">
+      <i class="bi bi-pencil"></i>
+      </button>
+    </div>
     {{/if}}
   </div>
   <br>

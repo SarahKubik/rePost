@@ -22,19 +22,14 @@ var quill = new Quill('#editor', {
 async function newFormHandler(event) {
   event.preventDefault();
 
-  let content = quill.getText().trim();
+  let content = quill.getContents().ops;
 
-  console.log(content)
-  console.log(typeof(content))
-  console.log(content.length)
-
-  if (content == "") {
+  if (content.length == 1 && content[0].insert.trim() == "") {
     content = null;
   } else {
     content = quill.root.innerHTML;
   }
 
-  console.log(content)
   const post_id = window.location.toString().split('/')[window.location.toString().split('/').length - 1];
 
   const response = await fetch(`/api/posts`, {
