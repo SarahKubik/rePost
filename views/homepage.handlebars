@@ -22,17 +22,31 @@
           {{{post.content}}}
       </h5>
     </div>
-    <div class="card-footer text-right">
-      <small class="text-muted">Posted by <strong>{{post.user.name}}</strong> on {{format_date createdAt}} </small>
+    <div class="card-footer text-end">
+      <p class="text-muted fst-italic fs-6">Posted by <strong>{{post.user.name}}</strong> on {{format_date createdAt}} </p>
     </div>
     {{else}}
-    <p style="font-size: smaller; font-style: italic;">RePOSTed by {{post.user.name}} on {{format_date createdAt}}</p>
+    <div class="card-footer text-end">
+      <p class="fs-6 fst-italic text-muted">RePOSTed by {{post.user.name}} on {{format_date createdAt}}</p>
+    </div>
     {{/if}}
     {{#if post.follow_tag}}
-    <p class="text-center" style="font-style: italic;">Click the post to see more...</p>
     {{/if}}
     {{#if post.content}}
-    <button class="btn col-2 btn-sm mx-auto btn-primary mb-3 reblog" id="{{post.id}}">rePOST</button>
+    <div class="btn-group" role="group" aria-label="post options">
+      {{!-- <button type="button" class="btn col-2 btn-sm mx-auto btn-primary mb-3 reblog" id="{{post.id}}">rePOST</button> --}}
+    
+      <button type="button" class="btn btn-sm mx-1 btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Like">
+      <i class="bi bi-heart"></i>
+      </button>
+      <button type="button" class="btn btn-sm mx-1 btn-secondary reblog" id="{{post.id}}" data-bs-toggle="tooltip" data-bs-placement="top" title="rePOST">
+      <i class="bi bi-arrow-left-right"></i>
+      </button>
+      <button type="button" class="btn btn-sm mx-1 btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Comment">
+      <i class="bi bi-pencil"></i>
+      </button>
+    </div>
+    
     {{else}}
     <button class="btn col-2 btn-sm mx-auto btn-primary mb-3 reblog" id="{{post.post_id}}">rePOST</button>
     {{/if}}
