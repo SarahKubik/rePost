@@ -22,10 +22,10 @@
       <li class="media">
         {{!-- <img src="..." class="mr-3" alt="..."> --}}
         <div class="media-body">
-          <h5 class="mt-0 mb-1m,bold">{{user.name}}</h5>
+          <h5 class="mt-0 mb-1 bold">{{user.name}}</h5>
           {{{content}}}
-          <div class="card-text text-right border-bottom">
-            <small class="text-muted"> Posted on {{format_date createdAt}}</small>
+          <div class="card-text text-end border-bottom">
+            <p class="text-muted fst-italic fs-6"> Posted on {{format_date createdAt}}</p>
           </div>
         </div>
       </li>
