@@ -7,7 +7,7 @@ var toolbarOptions = [
   [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
 
   [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-  ['link'],
+  ['link', 'video'],
   ['clean']                                         // remove formatting button
 ];
 
