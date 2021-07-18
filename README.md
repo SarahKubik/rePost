@@ -1,6 +1,10 @@
 # rePost
 
-A blog sharing content managmement application.
+>A blog sharing content managmement application.
+## Application Links:
+>*  [rePost](https://repostproject.herokuapp.com/)
+>* [Heroku](https://git.heroku.com/repostproject.git)
+>* [Github](https://github.com/SarahKubik/rePost)
 
 ## User Story
 
@@ -20,6 +24,7 @@ A blog sharing content managmement application.
 >* [Dotenv](https://www.npmjs.com/package/dotenv)
 >* [Express Handlebars](https://www.npmjs.com/package/express-handlebars)
 >* [MySql2](https://www.npmjs.com/package/mysql2)
+>* [Jawsdb](https://www.jawsdb.com/)
 >* [Bcrypt](https://www.npmjs.com/package/bcrypt)
 >* [Postman](https://www.postman.com)
 >* [Bootstrap](https://getbootstrap.com)
