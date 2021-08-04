@@ -5,6 +5,7 @@ const routes = require('./controller');
 const exphbs = require('express-handlebars');
 const helpers = require('./utils/helper')
 const hbs = exphbs.create({ helpers });
+const compression = require('compression');
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -23,6 +24,8 @@ const sess = {
 };
 
 app.use(session(sess));
+
+app.use(compression);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
