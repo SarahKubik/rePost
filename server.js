@@ -25,7 +25,7 @@ const sess = {
 
 app.use(session(sess));
 
-app.use(compression);
+app.use(compression());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
